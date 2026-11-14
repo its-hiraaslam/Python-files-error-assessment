@@ -1,0 +1,119 @@
+"""Institute Expense Tracker - stores daily expenses in expenses.csv."""
+import csv
+from datetime import datetime
+
+FILENAME = "expenses.csv"
+FIELDS = ["date", "item", "category", "amount"]
+
+
+def load_expenses():
+    """Load saved expenses; start empty if the file does not exist."""
+    expenses = []
+    try:
+        with open(FILENAME, newline="", encoding="utf-8") as f:
+            for row in csv.DictReader(f):
+                expenses.append({
+                    "date": row["date"],
+                    "item": row["item"],
+                    "category": row["category"],
+                    "amount": float(row["amount"]),
+                })
+    except FileNotFoundError:
+        print("No saved expenses found. Starting with an empty list.")
+    return expenses
+
+
+def save_expense(expense):
+    """Append one expense to the CSV (writes the header for a new file)."""
+    try:
+        with open(FILENAME, "r", encoding="utf-8"):
+            needs_header = False
+    except FileNotFoundError:
+        needs_header = True
+    with open(FILENAME, "a", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=FIELDS)
+        if needs_header:
+            writer.writeheader()
+        writer.writerow(expense)
+
+
+def read_date():
+    while True:
+        value = input("Date (YYYY-MM-DD): ").strip()
+        try:
+            datetime.strptime(value, "%Y-%m-%d")
+            return value
+        except ValueError:
+            print("Invalid date. Use the format YYYY-MM-DD.")
+
+
+def read_amount():
+    while True:
+        try:
+            amount = float(input("Amount: ").strip())
+            if amount < 0:
+                raise ValueError
+            return amount
+        except ValueError:
+            print("Invalid amount. Please enter a valid positive number.")
+
+
+def add_expense(expenses):
+    date = read_date()
+    item = input("Item name: ").strip()
+    category = input("Category: ").strip().title()
+    amount = read_amount()
+    expense = {"date": date, "item": item, "category": category, "amount": amount}
+    expenses.append(expense)
+    save_expense(expense)
+    print("Expense added and saved.")
+
+
+def show_expenses(expenses):
+    if not expenses:
+        print("No expenses recorded yet.")
+        return
+    print(f"\n{'Date':<12}{'Item':<20}{'Category':<15}{'Amount':>10}")
+    print("-" * 57)
+    for e in expenses:
+        print(f"{e['date']:<12}{e['item']:<20}{e['category']:<15}{e['amount']:>10.2f}")
+    categories = {e["category"] for e in expenses}  # set = unique categories
+    print("\nUnique categories:", ", ".join(sorted(categories)))
+
+
+def show_category_totals(expenses):
+    if not expenses:
+        print("No expenses recorded yet.")
+        return
+    categories = {e["category"] for e in expenses}
+    print("\nTotal expenses by category:")
+    for cat in sorted(categories):
+        total = sum(e["amount"] for e in expenses if e["category"] == cat)
+        print(f"  {cat:<15}{total:>10.2f}")
+    print(f"  {'GRAND TOTAL':<15}{sum(e['amount'] for e in expenses):>10.2f}")
+
+
+def main():
+    expenses = load_expenses()
+    while True:
+        print("\n=== Expense Tracker ===")
+        print("1. Add New Expense")
+        print("2. Show All Expenses")
+        print("3. Calculate Total Expenses by Category")
+        print("4. Exit")
+        choice = input("Choose an option (1-4): ").strip()
+        if choice == "1":
+            add_expense(expenses)
+        elif choice == "2":
+            show_expenses(expenses)
+        elif choice == "3":
+            show_category_totals(expenses)
+        elif choice == "4":
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please enter 1, 2, 3 or 4.")
+
+
+if __name__ == "__main__":
+    main() 
