@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="900" viewBox="0 0 800 900" font-family="'Segoe UI', Helvetica, Arial, sans-serif">
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L9,4.5 L0,9 z" fill="#475569"/></marker><marker id="r" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L9,4.5 L0,9 z" fill="#DC2626"/></marker></defs>
+<rect width="800" height="900" fill="#FFFFFF"/>
+<rect x="560" y="700" width="18" height="14" rx="3" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.4"/>
+<text x="586" y="711.2" font-size="12" fill="#334155" font-weight="400" text-anchor="start">Input</text>
+<rect x="560" y="722" width="18" height="14" rx="3" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.4"/>
+<text x="586" y="733.2" font-size="12" fill="#334155" font-weight="400" text-anchor="start">Decision</text>
+<rect x="560" y="744" width="18" height="14" rx="3" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.4"/>
+<text x="586" y="755.2" font-size="12" fill="#334155" font-weight="400" text-anchor="start">Success / output</text>
+<rect x="560" y="766" width="18" height="14" rx="3" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.4"/>
+<text x="586" y="777.2" font-size="12" fill="#334155" font-weight="400" text-anchor="start">Error / rejection</text>
+<rect x="560" y="788" width="18" height="14" rx="3" fill="#FEF3C7" stroke="#D97706" stroke-width="1.4"/>
+<text x="586" y="799.2" font-size="12" fill="#334155" font-weight="400" text-anchor="start">Warning</text>
+<rect x="560" y="810" width="18" height="14" rx="3" fill="#F1F5F9" stroke="#64748B" stroke-width="1.4"/>
+<text x="586" y="821.2" font-size="12" fill="#334155" font-weight="400" text-anchor="start">Process</text>
+<rect x="240.0" y="20.0" width="120" height="40" rx="20.0" fill="#1E293B" stroke="#1E293B" stroke-width="1.6"/>
+<text x="300" y="44.5" font-size="13" fill="#FFFFFF" font-weight="600" text-anchor="middle">Start</text>
+<path d="M300,60 L300,90" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="135.0" y="90.0" width="330" height="50" rx="8" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.6"/>
+<text x="300" y="111.1" font-size="13" fill="#1E3A8A" font-weight="400" text-anchor="middle">Read attendance.txt</text>
+<text x="300" y="128.0" font-size="13" fill="#1E3A8A" font-weight="400" text-anchor="middle">(read_lines, one name per line)</text>
+<path d="M300,140 L300,175" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<polygon points="300,175.0 400.0,215 300,255.0 200.0,215" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.6"/>
+<text x="300" y="211.1" font-size="13" fill="#4C1D95" font-weight="600" text-anchor="middle">File</text>
+<text x="300" y="228.0" font-size="13" fill="#4C1D95" font-weight="600" text-anchor="middle">found?</text>
+<path d="M400,215 L460,215" fill="none" stroke="#DC2626" stroke-width="1.6" marker-end="url(#r)"/>
+<text x="430" y="211.2" font-size="12" fill="#DC2626" font-weight="600" text-anchor="middle">no</text>
+<rect x="460.0" y="187.0" width="240" height="56" rx="8" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.6"/>
+<text x="580" y="211.2" font-size="12.5" fill="#7F1D1D" font-weight="400" text-anchor="middle">FileNotFoundError caught →</text>
+<text x="580" y="227.5" font-size="12.5" fill="#7F1D1D" font-weight="400" text-anchor="middle">print message</text>
+<path d="M700,215 L722,215" fill="none" stroke="#DC2626" stroke-width="1.6" marker-end="url(#r)"/>
+<rect x="722.0" y="198.0" width="56" height="34" rx="17.0" fill="#1E293B" stroke="#1E293B" stroke-width="1.6"/>
+<text x="750" y="219.6" font-size="13" fill="#FFFFFF" font-weight="600" text-anchor="middle">End</text>
+<path d="M300,255 L300,292" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<text x="312" y="279.2" font-size="12" fill="#475569" font-weight="600" text-anchor="start">yes</text>
+<polygon points="300,292.0 400.0,332 300,372.0 200.0,332" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.6"/>
+<text x="300" y="328.1" font-size="13" fill="#4C1D95" font-weight="600" text-anchor="middle">Any names</text>
+<text x="300" y="345.0" font-size="13" fill="#4C1D95" font-weight="600" text-anchor="middle">in file?</text>
+<path d="M400,332 L460,332" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<text x="430" y="328.2" font-size="12" fill="#475569" font-weight="600" text-anchor="middle">no</text>
+<rect x="460.0" y="304.0" width="240" height="56" rx="8" fill="#FEF3C7" stroke="#D97706" stroke-width="1.6"/>
+<text x="580" y="328.2" font-size="12.5" fill="#78350F" font-weight="400" text-anchor="middle">Warning: no student names,</text>
+<text x="580" y="344.5" font-size="12.5" fill="#78350F" font-weight="400" text-anchor="middle">nothing to clean</text>
+<path d="M700,332 L722,332" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="722.0" y="315.0" width="56" height="34" rx="17.0" fill="#1E293B" stroke="#1E293B" stroke-width="1.6"/>
+<text x="750" y="336.6" font-size="13" fill="#FFFFFF" font-weight="600" text-anchor="middle">End</text>
+<path d="M300,372 L300,405" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<text x="312" y="396.2" font-size="12" fill="#475569" font-weight="600" text-anchor="start">yes</text>
+<rect x="120.0" y="407.0" width="360" height="56" rx="8" fill="#F1F5F9" stroke="#64748B" stroke-width="1.6"/>
+<text x="300" y="431.1" font-size="13" fill="#0F172A" font-weight="400" text-anchor="middle">clean_names(): list comprehension</text>
+<text x="300" y="448.0" font-size="13" fill="#0F172A" font-weight="400" text-anchor="middle">strip() + title(), blank lines skipped</text>
+<path d="M300,463 L300,492" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="120.0" y="492.0" width="360" height="56" rx="8" fill="#F1F5F9" stroke="#64748B" stroke-width="1.6"/>
+<text x="300" y="516.1" font-size="13" fill="#0F172A" font-weight="400" text-anchor="middle">unique_students = set(cleaned)</text>
+<text x="300" y="533.0" font-size="13" fill="#0F172A" font-weight="400" text-anchor="middle">unique_count = len(unique_students)</text>
+<path d="M300,548 L300,577" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="120.0" y="580.0" width="360" height="50" rx="8" fill="#F1F5F9" stroke="#64748B" stroke-width="1.6"/>
+<text x="300" y="601.1" font-size="13" fill="#0F172A" font-weight="400" text-anchor="middle">sorted(unique_students)</text>
+<text x="300" y="618.0" font-size="13" fill="#0F172A" font-weight="400" text-anchor="middle">alphabetical order (A–Z)</text>
+<path d="M300,630 L300,660" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="120.0" y="663.0" width="360" height="50" rx="8" fill="#F1F5F9" stroke="#64748B" stroke-width="1.6"/>
+<text x="300" y="684.1" font-size="13" fill="#0F172A" font-weight="400" text-anchor="middle">save_clean_list():</text>
+<text x="300" y="701.0" font-size="13" fill="#0F172A" font-weight="400" text-anchor="middle">write attendance_clean.csv</text>
+<path d="M300,713 L300,743" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="120.0" y="746.0" width="360" height="58" rx="8" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.6"/>
+<text x="300" y="771.1" font-size="13" fill="#14532D" font-weight="400" text-anchor="middle">show_report(): original records,</text>
+<text x="300" y="788.0" font-size="13" fill="#14532D" font-weight="400" text-anchor="middle">unique students, cleaned list</text>
+<path d="M300,804 L300,835" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="240.0" y="835.0" width="120" height="40" rx="20.0" fill="#1E293B" stroke="#1E293B" stroke-width="1.6"/>
+<text x="300" y="859.5" font-size="13" fill="#FFFFFF" font-weight="600" text-anchor="middle">End</text>
+</svg>
